@@ -1,14 +1,11 @@
 <script lang="ts">
+    import type { ProductListDto } from "$lib/types/productList.dto"
     import { onMount } from "svelte"
 
 
-    interface Product{
-        id: number;
-        title: string;
+    
 
-    }
-
-    let productList: Product[] = []
+    let productList: ProductListDto[] = []
 
     async function fetchProduct(){
         const response = await fetch("https://fakestoreapi.com/products")
