@@ -1,21 +1,11 @@
 <script lang="ts">
     import "../app.css"
     import type { ProductListDto } from "$lib/types/productList.dto"
-    import { onMount } from "svelte"
 
-
-    let productList: ProductListDto[] = []
-
-    async function fetchProduct(){
-        const response = await fetch("https://fakestoreapi.com/products")
-        const data = await response.json()
-        productList = data
+    /** @type {import('./$types').PageData} */
+    export let data: {
+        products: Array<ProductListDto>
     }
-
-    onMount(() => {
-        fetchProduct();
-    })
-
 
 </script>
 
@@ -23,7 +13,7 @@
 <div class="mx-auto max-w-screen-2xl">  
     <h1 class="text-center font-bold text-3xl">Storwwe page.svelte</h1>
     <ul class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
-        {#each productList as product}
+        {#each data.products as product}
         <li class="rounded-lg bg-zinc-400 p-4 text-center" >{product.id}{'--->'}{product.title}</li>
         {/each}
     </ul>
