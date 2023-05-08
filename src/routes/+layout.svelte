@@ -1,11 +1,11 @@
-<header>
-    nav
-</header>
+<script lang="ts">
+    import '../app.css'
+</script>
 
-<main class="bg-zinc-700">
+<header>nav</header>
+
+<main class="bg-zinc-700 text-white">
     <slot />
 </main>
 
-<footer class="bg-zinc-700">
-    footer
-</footer>
+<footer>footer</footer>
