@@ -9,6 +9,8 @@
         products: Array<ProductListDto>
     }
 
+
+
     let search = ''
     let categories: string[] = []
 
@@ -23,11 +25,12 @@
     }
 
     async function fetchCategories() {
-        const response = await fetch('https://fakestoreapi.com/products/categories')
-        categories = await response.json()
+        const categoryResponse = await fetch('https://fakestoreapi.com/products/categories')
+        categories = await categoryResponse.json()
     }
     fetchCategories()
     
+
 </script>
 
 <!-- max-w-7xl = 80rem (1280px)  -::::-  max-w-screen-2xl = (1536px)-->
