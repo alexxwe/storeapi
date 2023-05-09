@@ -3,10 +3,12 @@
     import type { ProductListDto } from "$lib/types/productList.dto"
     import { bgColor, shadowColor } from "$lib/utils/colors"
     import Product from "$lib/components/Product.svelte"
+    import type { UserDto } from "$lib/types/users.dto"
 
     /** @type {import('./$types').PageData} */
     export let data: {
-        products: Array<ProductListDto>
+        products: Array<ProductListDto>,
+        users: Array<UserDto>,
     }
 
 
@@ -30,8 +32,30 @@
     }
     fetchCategories()
     
+    //users
+    let activeUser: UserDto = data.users[0]
 
+    function handleUser(e: any ){
+        const selectedIndex = e.target.selectedIndex
+        activeUser = data.users[selectedIndex]
+    } 
+    
+    
 </script>
+
+<header class="flex justify-between items-center p-8">
+    <h1 class="font-bold text-4xl">Storwe</h1>
+    <div class="flex items-center">
+        <p class="mr-8">{activeUser?.username || "No user Selected"}</p>
+        <select class="rounded bg-zinc-400 border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 shadow leading-tight focus:outline-none focus:shadow-outline" 
+        on:change="{handleUser}">
+        {#each data.users as user}
+            <option value="{user.id}">{user.username}</option>
+        {/each}
+        </select>
+    </div>
+</header>
+
 
 <!-- max-w-7xl = 80rem (1280px)  -::::-  max-w-screen-2xl = (1536px)-->
 <div>
