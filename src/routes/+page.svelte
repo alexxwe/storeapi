@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css"
     import type { ProductListDto } from "$lib/types/productList.dto"
-    import { bgColor, shadowColor } from "$lib/utils/colors"
+    import { userColor } from "$lib/utils/colors"
     import Product from "$lib/components/Product.svelte"
     import type { UserDto } from "$lib/types/users.dto"
 
@@ -35,11 +35,12 @@
     //users
     let activeUser: UserDto = data.users[0]
 
-    function handleUser(e: any ){
+    export function handleUser(e: any ){
         const selectedIndex = e.target.selectedIndex
         activeUser = data.users[selectedIndex]
+        document.body.classList.remove(...Object.values(userColor));
+        document.body.classList.add(userColor[activeUser.id]);    
     } 
-    
     
 </script>
 
