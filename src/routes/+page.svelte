@@ -9,20 +9,24 @@
         products: Array<ProductListDto>
     }
 
-
-
-
     let search = ''
+    let categories: string[] = []
 
     async function handleSearch() {
         if (!search) {
-        // si search está vacío, volver a cargar la página actual
         window.location.reload();
         return;
-    }        const response = await fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent(search).toLowerCase()}`)
+    }        
+        const response = await fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent(search).toLowerCase()}`)
         const searchData = await response.json()
         data.products = searchData
     }
+
+    async function fetchCategories() {
+        const response = await fetch('https://fakestoreapi.com/products/categories')
+        categories = await response.json()
+    }
+    fetchCategories()
     
 </script>
 
@@ -31,22 +35,36 @@
     <input
             type="text"
             placeholder=" Category Search"
-            class="rounded border px-1 text-black"
+            class="rounded border px-1 text-black "
             bind:value={search}
             on:keydown={event => {
                 if (event.key === 'Enter') {
                     handleSearch()
                 }
             }}
+            list="categories-list"
         />
+
+        <datalist id="categories-list">
+            {#each categories as category}
+            <option value={category} />
+            {/each}
+        </datalist>
 </div>
+
 <div class="mx-auto max-w-screen-2xl">  
     <h1 class="text-center font-bold text-4xl p-8">Storwwe page.svelte</h1>
+    {#if data.products.length === 0}
+    <p class="text-center font-bold text-4xl p-4">
+        ERROR: Categoria no disponible
+    </p>
+    {:else}
     <ul class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
         {#each data.products as product}
         <Product {product} />
         {/each}
     </ul>
+    {/if}
 </div>
     
 
