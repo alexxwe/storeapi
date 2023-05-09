@@ -44,20 +44,7 @@
 </script>
 
 <header class="flex justify-between items-center p-8">
-    <h1 class="font-bold text-4xl">Storwe</h1>
-    <div class="flex items-center">
-        <p class="mr-8">{activeUser?.username || "No user Selected"}</p>
-        <select class="rounded bg-zinc-400 border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 shadow leading-tight focus:outline-none focus:shadow-outline" 
-        on:change="{handleUser}">
-        {#each data.users as user}
-            <option value="{user.id}">{user.username}</option>
-        {/each}
-        </select>
-    </div>
-</header>
-
-
-<!-- max-w-7xl = 80rem (1280px)  -::::-  max-w-screen-2xl = (1536px)-->
+    <!-- max-w-7xl = 80rem (1280px)  -::::-  max-w-screen-2xl = (1536px)-->
 <div>
     <input
             type="text"
@@ -71,6 +58,12 @@
             }}
             list="categories-list"
         />
+        <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+        on:click={handleSearch}
+    >
+        Search
+    </button>
 
         <datalist id="categories-list">
             {#each categories as category}
@@ -78,6 +71,22 @@
             {/each}
         </datalist>
 </div>
+
+    <h1 class="font-bold text-4xl">Storwe</h1>
+
+    <div class="flex items-center">
+        <p class="mr-8">{activeUser?.username || "No user Selected"}</p>
+        <select class="rounded bg-zinc-400 border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 shadow leading-tight focus:outline-none focus:shadow-outline" 
+        on:change="{handleUser}">
+        {#each data.users as user}
+            <option value="{user.id}">{user.username}</option>
+        {/each}
+        </select>
+    </div>
+</header>
+
+
+
 
 <div class="mx-auto max-w-screen-2xl">  
     <h1 class="text-center font-bold text-4xl p-8">Storwwe page.svelte</h1>
