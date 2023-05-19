@@ -32,7 +32,7 @@ import { bgColor, shadowColor } from '$lib/utils/colors'
 
           <div class="flex items-center text-xl font-medium mb-4">
             <span class="mr-4">{rating(data.product.rating.rate)}</span>
-            <span class="text-blue-400">({data.product.rating.count}) ratings</span>
+            <span class="text-blue-800">({data.product.rating.count}) ratings</span>
           </div>
 
           <div class="flex items-center mr-4 mb-12">

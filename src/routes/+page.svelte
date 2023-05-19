@@ -90,7 +90,7 @@
 
 
 <div class="mx-auto max-w-screen-2xl">  
-    <h1 class="text-center font-bold text-4xl p-8">Storwwe page.svelte</h1>
+    <!-- <h1 class="text-center font-bold text-4xl p-8">Storwe page.svelte</h1> -->
     {#if data.products.length === 0}
     <p class="text-center font-bold text-4xl p-4">
         ERROR: Categoria no disponible
