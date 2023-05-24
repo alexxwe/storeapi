@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css"
     import type { ProductListDto } from "$lib/types/productList.dto"
-    import { userColor } from "$lib/utils/colors"
+    import { bgColor, shadowColor, userColor } from "$lib/utils/colors"
     import Product from "$lib/components/Product.svelte"
     import type { UserDto } from "$lib/types/users.dto"
 
@@ -41,7 +41,16 @@
         document.body.classList.remove(...Object.values(userColor));
         document.body.classList.add(userColor[activeUser.id]);    
     } 
-    
+
+    let index = 0
+
+    const next = () => {
+        const maxIndex = data.products.length - 5;
+        index = Math.min(index + 5, maxIndex);    }
+    const back = () => {
+        index = Math.max(index - 5, 0);
+    }
+
 </script>
 
 <header class="flex justify-between items-center p-8">
@@ -103,6 +112,33 @@
     </ul>
     {/if}
 </div>
-    
 
+<!-- <ul class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+    {#each data.products as product}
+    <Horizontal {products} />
+    {/each}
+</ul> -->
+
+<div class="m-12 flex mx-auto bg-white rounded">
+    <ul class="grid grid-cols-5 gap-4 mx-4 my-4">
+        {#each data.products.slice(index, index + 5) as product }
+            <a href="/product/{product.id}">
+                <li class="rounded-lg p-4 pb-12 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+                    <p class="text-xl my-2 truncate"># {product.id} {product.title}<br></p>
+                    <p class="font-bold text-black my-2">{product.category.toUpperCase()}<br></p>
+                    <img src={product.image} alt={product.title} class=" h-40 my-4 mx-auto">
+                    <p class="text-3xl rounded-lg text-black">{product.price}€</p>
+                </li>
+            </a>
+        {/each}
+    </ul>
+</div>
+<div>
+    <button class="mt-4 px-4 py-2 text-white bg-blue-500 rounded" on:click={back}>
+    Back
+    </button>
+    <button class="mt-4 px-4 py-2 text-white bg-blue-500 rounded" on:click={next}>
+    Next
+    </button>
+</div>
 
