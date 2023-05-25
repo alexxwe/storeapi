@@ -11,8 +11,6 @@
         users: Array<UserDto>,
     }
 
-
-
     let search = ''
     let categories: string[] = []
 
@@ -45,11 +43,13 @@
     let index = 0
 
     const next = () => {
-        const maxIndex = data.products.length - 5;
-        index = Math.min(index + 5, maxIndex);    }
-    const back = () => {
-        index = Math.max(index - 5, 0);
+        const maxIndex = data.products.length - 5
+        index = index === maxIndex ? 0 : index + 5
     }
+    
+    const back = () => {
+        const maxIndex = data.products.length - 5
+        index = index === 0 ? maxIndex : index - 5    }
 
 </script>
 
@@ -119,9 +119,12 @@
     {/each}
 </ul> -->
 
-<div class="m-12 flex mx-auto bg-white rounded">
-    <ul class="grid grid-cols-5 gap-4 mx-4 my-4">
-        {#each data.products.slice(index, index + 5) as product }
+
+<div class="mt-8 bg-white rounded">
+    <h2 class="text-4xl text-black font-bold mb-4">Related Products</h2>          
+    <div class="m-4 flex mx-auto bg-white rounded">
+        <ul class="grid grid-cols-5 gap-4 mx-4 my-4">
+            {#each data.products.slice(index, index + 5) as product }
             <a href="/product/{product.id}">
                 <li class="rounded-lg p-4 pb-12 text-center {bgColor[product.category]} {shadowColor[product.category]}">
                     <p class="text-xl my-2 truncate"># {product.id} {product.title}<br></p>
@@ -130,15 +133,16 @@
                     <p class="text-3xl rounded-lg text-black">{product.price}€</p>
                 </li>
             </a>
-        {/each}
-    </ul>
+            {/each}
+        </ul>
+    </div>
+    <div>
+        <button class="px-8 py-2 text-white bg-blue-500 rounded" on:click={back}>
+            Back
+        </button>
+        <button class="px-8 py-2 text-white bg-blue-500 rounded" on:click={next}>
+            Next
+    </button>
 </div>
-<div>
-    <button class="mt-4 px-4 py-2 text-white bg-blue-500 rounded" on:click={back}>
-    Back
-    </button>
-    <button class="mt-4 px-4 py-2 text-white bg-blue-500 rounded" on:click={next}>
-    Next
-    </button>
 </div>
 
