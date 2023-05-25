@@ -4,7 +4,8 @@ import { bgColor, shadowColor } from '$lib/utils/colors'
 
   /** @type {import('./$types').PageData} */
   export let data: {
-  product: ProductListDto
+  product: ProductListDto,
+  products: Array<ProductListDto>,
   }
 
   function rating(rate: number) {
@@ -14,6 +15,19 @@ import { bgColor, shadowColor } from '$lib/utils/colors'
   const stars = '⭐'.repeat(star) + additionalStar;
   return stars;
 }
+
+
+let index = 0
+
+const next = () => {
+    const maxIndex = data.products.length - 5
+    index = index === maxIndex ? 0 : index + 5
+}
+
+const back = () => {
+    const maxIndex = data.products.length - 5
+    index = index === 0 ? maxIndex : index - 5
+  }
 
 </script>
 
@@ -45,7 +59,30 @@ import { bgColor, shadowColor } from '$lib/utils/colors'
         </div>
       </div>
     </div>
-    <div class="mt-8">
-      <h2 class="text-4xl text-black font-bold mb-4">Related Products</h2>
-    </div>
+    
+<div class="mt-8 bg-white rounded">
+  <h2 class="text-4xl text-black font-bold mb-4">Related Products</h2>          
+  <div class="m-4 flex mx-auto bg-white rounded">
+      <ul class="grid grid-cols-5 gap-4 mx-4 my-4">
+          {#each data.products.slice(index, index + 5) as product }
+          <a href="/product/{product.id}">
+              <li class="rounded-lg p-4 pb-12 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+                  <p class="text-xl my-2 truncate"># {product.id} {product.title}<br></p>
+                  <p class="font-bold text-black my-2">{product.category.toUpperCase()}<br></p>
+                  <img src={product.image} alt={product.title} class=" h-40 my-4 mx-auto">
+                  <p class="text-3xl rounded-lg text-black">{product.price}€</p>
+              </li>
+          </a>
+          {/each}
+      </ul>
+  </div>
+  <div>
+      <button class="px-8 py-2 text-white bg-blue-500 rounded" on:click={back}>
+          Back
+      </button>
+      <button class="px-8 py-2 text-white bg-blue-500 rounded" on:click={next}>
+          Next
+  </button>
+</div>
+</div>
 </main>
