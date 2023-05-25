@@ -1,11 +1,13 @@
 <script lang="ts">
-    import '../app.css'
+    import Footer from '$lib/components/Footer.svelte'
+import Header from '$lib/components/Header.svelte'
+import '../app.css'
 </script>
 
-<header>nav</header>
+<Header/>
 
 <main class="bg-zinc-700 text-white">
     <slot />
 </main>
 
-<footer>footer</footer>
+<Footer />

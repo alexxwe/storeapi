@@ -66,7 +66,7 @@ const back = () => {
       <ul class="grid grid-cols-5 gap-4 mx-4 my-4">
           {#each data.products.slice(index, index + 5) as product }
           <a href="/product/{product.id}">
-              <li class="rounded-lg p-4 pb-12 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+              <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
                   <p class="text-xl my-2 truncate"># {product.id} {product.title}<br></p>
                   <p class="font-bold text-black my-2">{product.category.toUpperCase()}<br></p>
                   <img src={product.image} alt={product.title} class=" h-40 my-4 mx-auto">
