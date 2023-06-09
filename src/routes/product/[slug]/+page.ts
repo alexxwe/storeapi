@@ -1,28 +1,14 @@
-import type { ProductListDto } from '$lib/types/productList.dto.js'
+import type { ProductDto } from '$lib/types/product.dto.js'
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch, params }): Promise<{ product: ProductListDto | null; products: Array<ProductListDto> }> {
+export async function load({ fetch, params }): Promise<{ product: ProductDto | null; products: Array<ProductDto> }> {
     try {
         //products
         const productsResponse = await fetch('https://fakestoreapi.com/products')
-        const productsData = await productsResponse.json()
-        const products: Array<ProductListDto> = []
+        const products: Array<ProductDto> = await productsResponse.json()
 
-        for (const product of productsData) {
-            products.push({
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                description: product.description,
-                category: product.category,
-                image: product.image,
-                rating: product.rating,
-            })
-        }
-
-        const response =await fetch(`https://fakestoreapi.com/products/${params.slug}`)
-        const data: ProductListDto = await response.json()
-
+        const response = await fetch(`https://fakestoreapi.com/products/${params.slug}`)
+        const data: ProductDto = await response.json()
 
         return {
             products,
@@ -36,7 +22,7 @@ export async function load({ fetch, params }): Promise<{ product: ProductListDto
     }
 }
 export type pageData = {
-    products: Array<ProductListDto>
+    products: Array<ProductDto>
 }
 
 export type PageLoad = {
@@ -45,4 +31,3 @@ export type PageLoad = {
         slug: string
     }
 }
-
