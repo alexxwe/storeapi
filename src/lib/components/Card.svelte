@@ -1,9 +1,9 @@
 <script lang="ts">
-    import type { ProductListDto } from "$lib/types/productList.dto"
+    import type { ProductDto } from "$lib/types/product.dto"
     import { bgColor, shadowColor } from "$lib/utils/colors"
 
 
-    export let product: ProductListDto
+    export let product: ProductDto
     
 </script>
 

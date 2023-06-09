@@ -1,13 +1,13 @@
 <script lang="ts">
     import "../app.css"
-    import type { ProductListDto } from "$lib/types/productList.dto"
+    import type { ProductDto } from "$lib/types/product.dto"
     import { bgColor, shadowColor, userColor } from "$lib/utils/colors"
     import Product from "$lib/components/Product.svelte"
     import type { UserDto } from "$lib/types/users.dto"
 
     /** @type {import('./$types').PageData} */
     export let data: {
-        products: Array<ProductListDto>,
+        products: Array<ProductDto>,
         users: Array<UserDto>,
     }
 
