@@ -1,22 +1,22 @@
 export interface UserDto {
-    id: number;
-    email: string;
-    username: string;
-    password: string;
+    id: number
+    email: string
+    username: string
+    password: string
     name: {
-      firstname: string;
-      lastname: string;
-    };
-    phone: string;
+        firstname: string
+        lastname: string
+    }
+    phone: string
     address: {
-      geolocation: {
-        lat: string;
-        long: string;
-      };
-      city: string;
-      street: string;
-      number: number;
-      zipcode: string;
-    };
-    __v: number;
-  }
+        geolocation: {
+            lat: string
+            long: string
+        }
+        city: string
+        street: string
+        number: number
+        zipcode: string
+    }
+    __v: number
+}
