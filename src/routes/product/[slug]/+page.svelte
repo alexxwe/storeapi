@@ -73,7 +73,7 @@
                             <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
                                 <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
                                 <p class="my-2 font-bold text-black">{product.category.toUpperCase()}<br /></p>
-                                <img src={product.image} alt={product.title} class=" my-4 mx-auto h-40" />
+                                <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40" />
                                 <p class="rounded-lg text-3xl text-black">{product.price}€</p>
                             </li>
                         </a>

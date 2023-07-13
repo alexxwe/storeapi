@@ -29,5 +29,4 @@
     animate__animated animate__fadeInDown p-4 text-center">
     <h2 class="mb-2 text-lg font-bold">{product.title} #{product.id}</h2>
     <img src={product.image} alt={product.title} />
-    
 </a>
