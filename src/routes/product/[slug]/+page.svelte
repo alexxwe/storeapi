@@ -17,16 +17,16 @@
         return stars
     }
 
-    let dif =  data.product.id%5 ===0 ? 5 : data.product.id%5
+    let dif =  data.product.id%4 ===0 ? 4 : data.product.id%4
     let index = data.product.id - dif
     const next = () => {
-        const maxIndex = data.products.length -5
-        index = index === maxIndex ? 0 : index + 5
+        const maxIndex = data.products.length -4
+        index = index === maxIndex ? 0 : index + 4
     }
 
     const back = () => {
-        const maxIndex = data.products.length -5
-        index = index === 0 ? maxIndex : index - 5
+        const maxIndex = data.products.length -4
+        index = index === 0 ? maxIndex : index - 4
     }
 
     //Cart context
@@ -41,8 +41,8 @@
 <main class="bg-gray-200 py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="rounded-lg {bgColor[data.product.category]} {shadowColor[data.product.category]}} p-8">
-            <div class="flex">
-                <div class="flex flex-shrink-0 items-center">
+            <div class="md:flex items-center">
+                <div class="md:flex md:flex-shrink-0 ml-16 md:ml-0">
                     <img class="my-2 w-80 rounded-3xl object-cover" src={data.product.image} alt={data.product.title} />
                 </div>
                 <div class="my-6 ml-16">
@@ -67,8 +67,8 @@
         <div class="mt-8 rounded bg-white">
             <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
             <div class="m-4 mx-auto flex rounded bg-white">
-                <ul class="mx-4 my-4 grid grid-cols-5 gap-4">
-                    {#each data.products.slice(index, index + 5) as product}
+                <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    {#each data.products.slice(index, index + 4) as product}
                         <a href="/product/{product.id}">
                             <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
                                 <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
