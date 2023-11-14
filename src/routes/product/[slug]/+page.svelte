@@ -17,15 +17,15 @@
         return stars
     }
 
-    let index = 0
-
+    let dif =  data.product.id%5 ===0 ? 5 : data.product.id%5
+    let index = data.product.id - dif
     const next = () => {
-        const maxIndex = data.products.length - 5
+        const maxIndex = data.products.length -5
         index = index === maxIndex ? 0 : index + 5
     }
 
     const back = () => {
-        const maxIndex = data.products.length - 5
+        const maxIndex = data.products.length -5
         index = index === 0 ? maxIndex : index - 5
     }
 
