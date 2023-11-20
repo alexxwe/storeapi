@@ -42,10 +42,10 @@
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="rounded-lg {bgColor[data.product.category]} {shadowColor[data.product.category]}} p-8">
             <div class="md:flex items-center">
-                <div class="md:flex md:flex-shrink-0 ml-16 md:ml-0">
+                <div class="md:flex md:flex-shrink-0">
                     <img class="my-2 w-80 rounded-3xl object-cover" src={data.product.image} alt={data.product.title} />
                 </div>
-                <div class="my-6 ml-16">
+                <div class="md:my-6 md:ml-16">
                     <h1 class="mb-6 text-3xl font-bold">{data.product.title}</h1>
                     <h2 class="mb-8 text-xl font-bold text-black">{data.product.category.toUpperCase()}</h2>
                     <p class="mb-8 text-xl">{data.product.description}</p>
@@ -66,6 +66,10 @@
 
         <div class="mt-8 rounded bg-white">
             <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
+            <div class="flex justify-center gap-2 md:hidden">
+                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={back}> Back </button>
+                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={next}> Next </button>
+            </div>
             <div class="m-4 mx-auto flex rounded bg-white">
                 <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                     {#each data.products.slice(index, index + 4) as product}
