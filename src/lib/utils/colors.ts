@@ -13,15 +13,15 @@ export const shadowColor: Record<string, string> = {
 }
 
 export const userColor: Record<string, string> = {
-    '0': 'bg-black',
-    '1': 'bg-rose-500',
-    '2': 'bg-emerald-400',
-    '3': 'bg-amber-600',
-    '4': 'bg-sky-400',
-    '5': 'bg-lime-500',
-    '6': 'bg-teal-300',
-    '7': 'bg-cyan-700',
-    '8': 'bg-lime-600',
-    '9': 'bg-orange-400',
-    '10': 'bg-zinc-600',
+    '0': 'text-neutral-300',
+    '1': 'text-rose-500',
+    '2': 'text-emerald-400',
+    '3': 'text-amber-600',
+    '4': 'text-sky-400',
+    '5': 'text-lime-500',
+    '6': 'text-teal-300',
+    '7': 'text-cyan-700',
+    '8': 'text-lime-600',
+    '9': 'text-orange-400',
+    '10': 'text-zinc-600',
 }

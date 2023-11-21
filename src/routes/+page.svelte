@@ -31,15 +31,17 @@
     fetchCategories()
 
     //users
-    let activeUser: UserDto = data.users[0]
+    // let activeUser: UserDto = data.users[-1]
+    let activeUser: UserDto | null = null
 
     export function handleUser(e: any) {
         const selectedIndex = e.target.selectedIndex
-        activeUser = data.users[selectedIndex]
+        activeUser = data.users[selectedIndex -1]
         document.body.classList.remove(...Object.values(userColor))
         document.body.classList.add(userColor[activeUser.id])
     }
-
+    
+    //Carousel buttons 
     let index = 0
 
     const next = () => {
@@ -79,12 +81,13 @@
 
     <!-- <h1 class="font-bold text-4xl">Storwe</h1> -->
 
-    <div class="flex items-center">
-        <p class="mr-8">{activeUser?.username || 'No user Selected'}</p>
+    <div class="flex items-center text-black">
+        <p class="mr-8">{activeUser ? activeUser.username : ''}</p>
         <select
             class="focus:shadow-outline rounded border border-gray-400 bg-zinc-400 px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
             on:change={handleUser}
         >
+        <option value="" disabled selected>Select user</option>
             {#each data.users as user}
                 <option value={user.id}>{user.username}</option>
             {/each}

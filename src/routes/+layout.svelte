@@ -6,7 +6,7 @@ import '../app.css'
 
 <Header/>
 
-<main class="bg-zinc-700 text-white">
+<main class="bg-neutral-100 text-white">
     <slot />
 </main>
 

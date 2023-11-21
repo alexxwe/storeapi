@@ -38,7 +38,7 @@
     }
 </script>
 
-<main class="bg-gray-200 py-12">
+<main class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="rounded-lg {bgColor[data.product.category]} {shadowColor[data.product.category]}} p-8">
             <div class="md:flex items-center">
