@@ -1,15 +1,15 @@
 export const bgColor: Record<string, string> = {
-    "men's clothing": 'bg-blue-400',
-    jewelery: 'bg-gray-400',
-    electronics: 'bg-amber-400',
-    "women's clothing": 'bg-rose-400',
+    "men's clothing": 'bg-blue-500',
+    jewelery: 'bg-violet-500',
+    electronics: 'bg-yellow-500',
+    "women's clothing": 'bg-teal-500',
 }
 
 export const shadowColor: Record<string, string> = {
     "men's clothing": 'hover:shadow-blue-600 shadow-lg border-2 border-blue-600',
-    jewelery: 'hover:shadow-gray-600 shadow-lg border-2 border-gray-600',
-    electronics: 'hover:shadow-amber-600 shadow-lg border-2 border-amber-600',
-    "women's clothing": 'hover:shadow-rose-600 shadow-lg border-2 border-rose-600',
+    jewelery: 'hover:shadow-violet-600 shadow-lg border-2 border-violet-600',
+    electronics: 'hover:shadow-yellow-600 shadow-lg border-2 border-yellow-600',
+    "women's clothing": 'hover:shadow-teal-600 shadow-lg border-2 border-teal-600',
 }
 
 export const userColor: Record<string, string> = {
