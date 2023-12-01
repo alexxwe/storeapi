@@ -16,7 +16,7 @@
                 <p class="text-xl my-2"># {product.id} {product.title}<br /></p>
                 <p class="font-bold text-lg my-2">{product.category.toUpperCase()}<br /></p>
                 <img src={product.image} alt={product.title} class="rounded-xl h-40 my-4 mx-auto" />
-                <p class="my-2">{product.description}<br /></p>
+                <p class="my-2">{product.description.charAt(0).toUpperCase() + product.description.slice(1)}<br /></p>
                 <div class="absolute bottom-2 left-0 right-0">
                     <span class="text-4xl font-bold rounded-lg px-2 py-2">{product.price}€</span>
                 </div>
