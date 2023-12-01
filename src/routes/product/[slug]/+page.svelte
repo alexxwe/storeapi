@@ -17,24 +17,24 @@
         return stars
     }
 
-    let dif =  data.product.id%4 ===0 ? 4 : data.product.id%4
+    let dif = data.product.id % 4 === 0 ? 4 : data.product.id % 4
     let index = data.product.id - dif
     const next = () => {
-        const maxIndex = data.products.length -4
+        const maxIndex = data.products.length - 4
         index = index === maxIndex ? 0 : index + 4
     }
 
     const back = () => {
-        const maxIndex = data.products.length -4
+        const maxIndex = data.products.length - 4
         index = index === 0 ? maxIndex : index - 4
     }
 
     //Cart context
-    let _cartContext : Array<ProductDto> = []
+    let _cartContext: Array<ProductDto> = []
     cartContext.subscribe(products => (_cartContext = products))
 
     const addToCart = () => {
-        cartContext.update(products => ([...products, data.product]))
+        cartContext.update(products => [...products, data.product])
     }
 </script>
 
@@ -52,14 +52,14 @@
 
                     <div class="mb-4 flex items-center text-xl font-medium">
                         <span class="mr-4">{rating(data.product.rating.rate)}</span>
-                        <span class="text-blue-800">({data.product.rating.count}) ratings</span>
+                        <span class="text-black">({data.product.rating.count}) ratings</span>
                     </div>
 
                     <div class="mr-4 mb-12 flex items-center">
                         <span class="text-4xl font-bold text-black">{data.product.price}€</span>
                     </div>
 
-                    <button class="rounded bg-blue-500 py-2 px-4  text-xl font-bold text-white hover:bg-blue-700" on:click={addToCart}> Add to Cart </button>
+                    <button class="rounded bg-blue-700 py-2 px-4 text-xl font-bold text-white hover:bg-blue-900" on:click={addToCart}> Add to Cart </button>
                 </div>
             </div>
         </div>
@@ -67,27 +67,27 @@
         <div class="mt-8 rounded bg-white">
             <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
             <div class="flex justify-center gap-2 md:hidden">
-                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={back}> Back </button>
-                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={next}> Next </button>
+                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
+                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
             </div>
-            <div class="m-4 mx-auto flex rounded bg-white">
+            <div class="m-4 mx-auto flex rounded bg-white text-black">
                 <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                     {#each data.products.slice(index, index + 4) as product}
-                        <a href="/product/{product.id}">
-                            <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+                        <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+                            <a href="/product/{product.id}">
                                 <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
-                                <p class="my-2 font-bold text-black">{product.category.toUpperCase()}<br /></p>
+                                <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
                                 <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40" />
-                                <p class="rounded-lg text-3xl text-black">{product.price}€</p>
-                            </li>
-                        </a>
+                                <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
+                            </a>
+                        </li>
                     {/each}
                 </ul>
             </div>
             <div class="mb-4 flex justify-center gap-2">
                 <div class="mb-2">
-                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={back}> Back </button>
-                    <button class="rounded bg-blue-500 px-8 py-2 text-white" on:click={next}> Next </button>
+                    <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
+                    <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
                 </div>
             </div>
         </div>
