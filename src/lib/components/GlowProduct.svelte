@@ -28,38 +28,56 @@
             ;(card as HTMLLIElement).style.setProperty('--xPos', `${x}px`)
             ;(card as HTMLLIElement).style.setProperty('--yPos', `${y}px`)
         })
-    }
+    } 
 </script>
 
-<div class="flex">
+<div class="flex text-black hover:text-white">
     <a href="/product/{product.id}" class="flex">
-        <div bind:this={cardBorder} class="cardBorder">
+        <div bind:this={cardBorder} class="cardBorder" id="cardContainer">
             <li
                 class="rounded-lg p-4 pb-12 text-center {bgColor[product.category]} {shadowColor[product.category]}
             animate__animated animate__fadeInDown card"
             >
                 <p class="text-xl my-2"># {product.id} {product.title}<br /></p>
-                <p class="font-bold text-black my-2">{product.category.toUpperCase()}<br /></p>
+                <p class="font-bold text-lg my-2">{product.category.toUpperCase()}<br /></p>
                 <img src={product.image} alt={product.title} class="rounded-xl h-40 my-4 mx-auto" />
-                <p class="my-2">{product.description}<br /></p>
+                <p class="my-2">{product.description.charAt(0).toUpperCase() + product.description.slice(1)}<br /></p>
                 <div class="absolute bottom-2 left-0 right-0">
-                    <span class="text-4xl rounded-lg px-2 py-2 text-black">{product.price}€</span>
+                    <span class="text-4xl font-bold rounded-lg px-2 py-2">{product.price}€</span>
                 </div>
             </li>
         </div>
     </a>
 </div>
 
+<!-- <style>
+.cardBorder {
+    display: flex;
+    border-radius: 10px;
+}
+:hover .cardBorder{
+    background-color: rgb(46, 46, 46);
+}
 
+.cardBorder:hover .card {
+    background: radial-gradient(35rem circle at var(--xPos) var(--yPos), rgba(240, 0, 240, 0.6), transparent 25%);
+}
+
+.cardBorder .card {
+    /* background: radial-gradient(150rem circle at 0 0, rgb(46, 46, 46), transparent 80%); */
+    border-radius: 0.5rem;
+    transition: all 0.15s;
+}
+</style> -->
 <style lang="scss">
   .cardBorder {
-    background-color: rgb(46, 46, 46);
+    background-color: rgba(46, 46, 46, 0.9);
     display: flex;
     border-radius: 10px;
     
       &:hover {
           .card {
-              background: radial-gradient(35rem circle at var(--xPos) var(--yPos), rgba(240, 0, 241, 0.4), transparent 25%);
+              background: radial-gradient(35rem circle at var(--xPos) var(--yPos), rgba(240, 0, 241, 0.6), transparent 25%);
           }
       }
       .card {
