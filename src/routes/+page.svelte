@@ -104,8 +104,9 @@
         <p class="p-4 text-center text-4xl font-bold">ERROR: Categoria no disponible</p>
     {:else}
         <ul>
-            <li class="mx-auto grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <li class="mx-auto grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {#each data.products as product}
+                    <!-- <GlowProduct {product} /> -->
                     <Product {product} />
                 {/each}
             </li>

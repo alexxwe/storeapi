@@ -7,6 +7,7 @@ import '../app.css'
 <Header/>
 
 <main class="bg-neutral-100 text-white">
+<!-- <main class="bg-gradient-to-b from-gray-900 to-gray-600 text-white"> -->
     <slot />
 </main>
 
