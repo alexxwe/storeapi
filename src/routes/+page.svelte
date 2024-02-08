@@ -112,38 +112,34 @@
             </li>
         </ul>
     {/if}
-</div>
 
-<!-- <ul class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-    {#each data.products as product}
-    <Horizontal {products} />
-    {/each}
-</ul> -->
-
-<div class="mt-8 rounded bg-white">
-    <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
-    <div class="flex justify-center gap-2 md:hidden">
-        <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
-        <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
-    </div>
-    <div class="m-4 mx-auto flex rounded bg-white text-black">
-        <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-            {#each data.products.slice(index, index + 4) as product}
-                <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
-                    <a href="/product/{product.id}">
-                        <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
-                        <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
-                        <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40" />
-                        <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
-                    </a>
-                </li>
-            {/each}
-        </ul>
-    </div>
-    <div class="mb-4 flex justify-center gap-2">
-        <div class="mb-2">
+    <div class="mt-1 rounded bg-white">
+        <h2 class="mb-4 ml-2 mt-16 text-4xl font-bold text-black">Related Products</h2>
+        <div class="flex justify-center gap-2 md:hidden">
             <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
             <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
+        </div>
+        <div class="m-4 mx-auto flex rounded bg-white text-black">
+            <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                {#each data.products.slice(index, index + 4) as product}
+                    <li class="rounded-lg hover:scale-105 p-4 pb-6 text-center bg-white {shadowColor[product.category]}">
+                        <a href="/product/{product.id}">
+                            <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
+                            <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
+                            <div class="bg-white rounded-lg">
+                                <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40" />
+                            </div>
+                            <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+        <div class="mb-4 flex justify-center gap-2">
+            <div class="mb-2">
+                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
+                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
+            </div>
         </div>
     </div>
 </div>

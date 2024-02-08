@@ -10,7 +10,7 @@
     <a href="/product/{product.id}" class="flex">
         <ul class="flex">
             <li
-                class="rounded-lg p-4 pb-12 text-center bg-neutral-100 {shadowColor[product.category]}
+                class="rounded-lg p-4 pb-12 text-center bg-white {shadowColor[product.category]}
             animate__animated animate__fadeInDown"
             >
             <p class="text-xl my-2 truncate-1-line"># {product.id} {product.title}<br /></p>

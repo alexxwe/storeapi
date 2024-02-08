@@ -40,15 +40,15 @@
 
 <main class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="rounded-lg {bgColor[data.product.category]} {shadowColor[data.product.category]}} p-8">
+        <div class="rounded-lg bg-white {shadowColor[data.product.category]}} p-8">
             <div class="md:flex items-center">
                 <div class="md:flex md:flex-shrink-0">
                     <img class="my-2 w-80 rounded-3xl object-cover" src={data.product.image} alt={data.product.title} />
                 </div>
                 <div class="md:my-6 md:ml-16">
-                    <h1 class="mb-6 text-3xl font-bold">{data.product.title}</h1>
+                    <h1 class="mb-6 text-3xl font-bold text-black">{data.product.title}</h1>
                     <h2 class="mb-8 text-xl font-bold text-black">{data.product.category.toUpperCase()}</h2>
-                    <p class="mb-8 text-xl">{data.product.description}</p>
+                    <p class="mb-8 text-xl text-black">{data.product.description}</p>
 
                     <div class="mb-4 flex items-center text-xl font-medium">
                         <span class="mr-4">{rating(data.product.rating.rate)}</span>
@@ -73,11 +73,11 @@
             <div class="m-4 mx-auto flex rounded bg-white text-black">
                 <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                     {#each data.products.slice(index, index + 4) as product}
-                        <li class="rounded-lg p-4 pb-6 text-center {bgColor[product.category]} {shadowColor[product.category]}">
+                        <li class="rounded-lg hover:scale-105 p-4 pb-6 text-center bg-white {shadowColor[product.category]}">
                             <a href="/product/{product.id}">
                                 <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
                                 <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
-                                <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40" />
+                                <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40 scale-75" />
                                 <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
                             </a>
                         </li>

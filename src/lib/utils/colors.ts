@@ -6,10 +6,10 @@ export const bgColor: Record<string, string> = {
 }
 
 export const shadowColor: Record<string, string> = {
-    "men's clothing": 'hover:shadow-blue-600/40 shadow-lg border-2 border-blue-600/60',
-    jewelery: 'hover:shadow-violet-600/40 shadow-lg border-2 border-violet-600/60',
-    electronics: 'hover:shadow-yellow-600/40 shadow-lg border-2 border-yellow-600/60',
-    "women's clothing": 'hover:shadow-teal-600/40 shadow-lg border-2 border-teal-600/60',
+    "men's clothing": 'hover:shadow-blue-100/90 shadow-lg border-2 border-blue-100/90',
+    jewelery: 'hover:shadow-violet-100/90 shadow-lg border-2 border-violet-100/90',
+    electronics: 'hover:shadow-yellow-100/90 shadow-lg border-2 border-yellow-100/90',
+    "women's clothing": 'hover:shadow-teal-100/90 shadow-lg border-2 border-teal-100/90',
 }
 
 export const userColor: Record<string, string> = {
