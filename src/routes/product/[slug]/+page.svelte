@@ -39,7 +39,7 @@
 </script>
 
 <main class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-xs md:max-w-7xl sm:px-6 lg:px-8">
         <div class="rounded-lg bg-white {shadowColor[data.product.category]}} p-8">
             <div class="md:flex items-center">
                 <div class="md:flex md:flex-shrink-0">
@@ -63,46 +63,46 @@
                 </div>
             </div>
         </div>
-
-        <div class="mt-8 rounded bg-white">
-            <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
-            <div class="flex justify-center gap-2 md:hidden">
-                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
-                <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
-            </div>
-            <div class="m-4 mx-auto flex rounded bg-white text-black">
-                <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                    {#each data.products.slice(index, index + 4) as product}
-                        <li class="rounded-lg hover:scale-105 p-4 pb-6 text-center bg-white {shadowColor[product.category]}">
-                            <a href="/product/{product.id}">
-                                <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
-                                <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
-                                <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40 scale-75" />
-                                <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
-                            </a>
-                        </li>
-                    {/each}
-                </ul>
-            </div>
-            <div class="mb-4 flex justify-center gap-2">
-                <div class="mb-2">
-                    <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
-                    <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
-                </div>
-            </div>
-        </div>
-        <div class="fixed top-4 right-4 m-4 mt-20 rounded bg-white p-2 text-black shadow">
-            <span class="text-xl font-bold">Cart: {_cartContext.length}</span>
-            <div class="mt-2">
-                {#each _cartContext as item}
-                    <div class="mb-2 flex items-center border-b border-gray-300 pb-2">
-                        <img class="mr-2 h-12 w-12 rounded object-contain" src={item.image} alt={item.title} />
-                        <p class="underline">{item.price}€</p>
-                        {item.id}
-                        <p class="text-md ml-2 max-w-[20ch] truncate overflow-ellipsis">{item.title}</p>
-                    </div>
-                {/each}
-            </div>
-        </div>
     </div>
 </main>
+
+<div class="mt-8 rounded bg-white">
+    <h2 class="mb-4 ml-2 text-4xl font-bold text-black">Related Products</h2>
+    <div class="flex justify-center gap-2 md:hidden">
+        <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
+        <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
+    </div>
+    <div class="m-4 mx-auto flex rounded bg-white text-black">
+        <ul class="mx-4 my-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+            {#each data.products.slice(index, index + 4) as product}
+                <li class="rounded-lg hover:scale-105 p-4 pb-6 text-center bg-white {shadowColor[product.category]}">
+                    <a href="/product/{product.id}">
+                        <p class="my-2 truncate text-xl"># {product.id} {product.title}<br /></p>
+                        <p class="my-2 font-bold">{product.category.toUpperCase()}<br /></p>
+                        <img src={product.image} alt={product.title} class="rounded-xl my-4 mx-auto h-40 scale-75" />
+                        <p class="rounded-lg text-3xl font-semibold">{product.price}€</p>
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    </div>
+    <div class="mb-4 flex justify-center gap-2">
+        <div class="mb-2">
+            <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={back}> Back </button>
+            <button class="rounded bg-blue-600 px-8 py-2 text-white" on:click={next}> Next </button>
+        </div>
+    </div>
+</div>
+<div class="fixed top-4 right-4 m-4 mt-20 rounded bg-white p-2 text-black shadow">
+    <span class="text-xl font-bold">Cart: {_cartContext.length}</span>
+    <div class="mt-2">
+        {#each _cartContext as item}
+            <div class="mb-2 flex items-center border-b border-gray-300 pb-2">
+                <img class="mr-2 h-12 w-12 rounded object-contain" src={item.image} alt={item.title} />
+                <p class="underline">{item.price}€</p>
+                {item.id}
+                <p class="text-md ml-2 max-w-[20ch] truncate overflow-ellipsis">{item.title}</p>
+            </div>
+        {/each}
+    </div>
+</div>
