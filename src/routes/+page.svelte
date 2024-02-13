@@ -82,15 +82,15 @@
 
     <!-- <h1 class="font-bold text-4xl">Storwe</h1> -->
 
-    <div class="flex items-center text-black">
-        <p class="mr-8">{activeUser ? activeUser.username : ''}</p>
+    <div class="text-black">
+        <!-- <p class="mr-8">{activeUser ? activeUser.username : ''}</p> -->
         <select
             id="userSelect"
-            class="focus:shadow-outline rounded border border-gray-400 bg-zinc-400 px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
+            class="focus:shadow-outline rounded border border-gray-400 bg-zinc-400 py-2 leading-tight shadow hover:border-gray-500 focus:outline-none"
             on:change={handleUser}
         >
             <label for="userSelect">Select User: </label>
-            <option value="" disabled selected>Select user</option>
+            <option value="" disabled selected>Users</option>
             {#each data.users as user}
                 <option value={user.id}>{user.username}</option>
             {/each}
@@ -104,7 +104,7 @@
         <p class="p-4 text-center text-4xl font-bold">ERROR: Categoria no disponible</p>
     {:else}
         <ul>
-            <li class="mx-auto grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <li class="mx-auto grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-xs md:max-w-7xl">
                 {#each data.products as product}
                     <!-- <GlowProduct {product} /> -->
                     <Product {product} />
